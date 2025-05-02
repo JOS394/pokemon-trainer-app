@@ -1,0 +1,29 @@
+.pokemon-header {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .pokemon-logo {
+    height: 2.5rem;
+    width: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .pokemon-header {
+      padding: 0.5rem 1rem;
+    }
+    
+    .pokemon-logo {
+      height: 2rem;
+    }
+  }

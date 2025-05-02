@@ -1,0 +1,38 @@
+<!-- Pokemon Selection Container -->
+<div class="pokemon-selection-container">
+  <!-- Back Link -->
+  <div class="back-link">
+    <a (click)="goToPrevious()">
+      <span class="arrow-left"></span>
+      <span class="heading">¡Ya casi terminamos!</span>
+    </a>
+  </div>
+  
+  <div class="subtitle">Revisa la información, y completa lo solicitado.</div>
+  
+  <!-- Main Layout -->
+  <div class="selection-layout">
+    <!-- User Profile Card -->
+    <app-trainer-info [trainer]="currentTrainer"></app-trainer-info>
+    
+    <!-- Pokemon Selection Section -->
+    <div class="selection-section">
+      <h2 class="section-title">Pokémon</h2>
+      <div class="section-instruction">Selecciona 3 Pokémon para que sean parte de tu equipo</div>
+      
+      <!-- Search Bar -->
+      <app-pokemon-search (searchChange)="onSearch($event)"></app-pokemon-search>
+      
+      <!-- Pokemon List -->
+      <app-pokemon-list 
+        [pokemons]="filteredPokemons" 
+        [selectedPokemons]="selectedPokemons"
+        [maxSelection]="maxSelection"
+        (selectionChange)="updateSelectedPokemons($event)"
+        (saveTeam)="saveSelection()"
+      ></app-pokemon-list>
+    </div>
+  </div>
+</div>
+
+<app-loader *ngIf="isLoading"></app-loader>

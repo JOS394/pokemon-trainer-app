@@ -1,0 +1,72 @@
+*
+{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body{
+  background-color: #192935;
+}
+
+.wrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+   transform: translate(-50%, -50%);
+
+}
+
+.pokeball {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 6px solid;
+    animation: frames .8s linear 0s infinite;
+  }
+  
+  .pokeball:after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    background-color: red;
+    border-bottom: 8px solid;
+    top: -8px;
+  }
+  
+  .pokeball:before {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border: 8px solid;
+    border-radius: 50%;
+    bottom: 36px;
+    right: 36px;
+    z-index: 1;
+  }
+  
+
+.text-loader{
+  color:#185A7D;
+  font-size:20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  
+}
+
+@keyframes frames{
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

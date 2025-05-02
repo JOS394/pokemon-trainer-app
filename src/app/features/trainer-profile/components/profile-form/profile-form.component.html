@@ -1,0 +1,122 @@
+<div class="info-section">
+    <h2 class="section-title">Tu información</h2>
+    <p class="section-subtitle">Completa la siguiente información para completar tu perfil</p>
+    
+    <form [formGroup]="profileForm" class="profile-form" (ngSubmit)="submitForm()">
+      <!-- Name Field -->
+      <div class="form-group material-input-container" [class.has-error]="nameControl?.invalid && nameControl?.touched">
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          class="material-input" 
+          [class.is-invalid]="nameControl?.invalid && nameControl?.touched"
+          placeholder="Nombre*"
+        >
+        <label for="name" class="material-label">Nombre*</label>
+        
+        <div class="material-error" *ngIf="nameControl?.invalid && nameControl?.touched">
+          <span *ngIf="nameControl?.errors?.['required']">El nombre es requerido.</span>
+          <span *ngIf="nameControl?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</span>
+          <span *ngIf="nameControl?.errors?.['maxlength']">El nombre no puede exceder 50 caracteres.</span>
+        </div>
+      </div>
+      
+      <!-- Hobby Field -->
+      <div class="pasatiempo-container">
+        <div class="pasatiempo-input-container" [class.has-value]="!!selectedHobby">
+          <div *ngIf="selectedHobby" class="hobby-chip">
+            <span>{{selectedHobby}}</span>
+            <button type="button" class="chip-remove" (click)="clearHobby($event)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          
+          <input
+            *ngIf="!selectedHobby"
+            type="text"
+            class="pasatiempo-input"
+            [(ngModel)]="hobbyInput"
+            [ngModelOptions]="{standalone: true}"
+            (focus)="showOptions = true"
+            (input)="onInputChange()"
+            placeholder="Pasatiempo favorito"
+          />
+          
+          <div class="dropdown-icon" (click)="toggleOptions()">
+            <mat-icon>{{showOptions ? 'arrow_drop_up' : 'arrow_drop_down'}}</mat-icon>
+          </div>
+        </div>
+        
+        <div *ngIf="showOptions" class="hobby-options">
+          <div *ngFor="let hobby of filteredHobbies" 
+              class="hobby-option" 
+              [class.selected]="hobby === selectedHobby"
+              (click)="selectHobby(hobby)">
+            {{hobby}}
+          </div>
+        </div>
+      </div>
+      
+      <!-- Birthday Field -->
+      <div 
+        class="form-group material-input-container input-date" 
+        [class.has-error]="birthDateControl?.invalid && birthDateControl?.touched"
+      >
+        <input 
+          [type]="birthDateInput" 
+          id="birthDate" 
+          formControlName="birthDate" 
+          class="material-input"
+          [min]="minDate"
+          [max]="maxDate"
+          (focus)="birthDateInput = 'date'"
+          (blur)="updateDateInputType()"
+          [class.is-invalid]="birthDateControl?.invalid && birthDateControl?.touched"
+          placeholder="Cumpleaños*"
+        >
+        
+        <label for="birthDate" class="material-label">Cumpleaños*</label>
+        
+        <div class="material-error" *ngIf="birthDateControl?.invalid && birthDateControl?.touched">
+          <span *ngIf="birthDateControl?.errors?.['required']">La fecha de nacimiento es requerida.</span>
+        </div>
+      </div>
+      
+      <!-- Document Field -->
+      <div 
+        class="form-group material-input-container" 
+        [class.has-error]="identificationNumberControl?.invalid && identificationNumberControl?.touched"
+      >
+        <input 
+          type="text" 
+          id="identificationNumber" 
+          formControlName="identificationNumber" 
+          class="material-input"
+          [class.is-invalid]="identificationNumberControl?.invalid && identificationNumberControl?.touched"
+          [placeholder]="documentPlaceholder"
+          (input)="formatDui($event)"
+        >
+        <label for="identificationNumber" class="material-label">
+          {{ documentPlaceholder }}
+        </label>
+        
+        <div class="material-error" *ngIf="identificationNumberControl?.invalid && identificationNumberControl?.touched">
+          <span *ngIf="identificationNumberControl?.errors?.['required']">El DUI es requerido.</span>
+          <span *ngIf="identificationNumberControl?.errors?.['pattern']">El formato del documento no es válido.</span>
+          <span *ngIf="identificationNumberControl?.errors?.['invalidDui']">El DUI no es válido.</span>
+        </div>
+      </div>
+      
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          class="btn-continue"
+          [disabled]="profileForm.invalid || !profilePhoto"
+        >
+          Continuar
+        </button>
+      </div>
+    </form>
+  </div>

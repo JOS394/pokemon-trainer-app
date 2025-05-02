@@ -1,0 +1,20 @@
+<div class="profile-card">
+    <h2 class="profile-name">{{trainer?.name || 'Entrenador'}}</h2>
+    
+    <div class="profile-photo">
+      <img [src]="trainer?.photo || 'assets/default-avatar.png'" alt="Foto de perfil">
+    </div>
+    
+    <div class="profile-details">
+      <div class="detail-item">
+        <span class="detail-label">Pasatiempo:</span>
+        <span class="detail-value">{{trainer?.hobby || 'Ver Series'}}</span>
+      </div>
+  
+      <div class="detail-item">
+        <span class="detail-label">Edad:</span>
+        <span class="detail-value">{{trainer?.age || 18}}</span>
+      </div>
+      
+    </div>
+  </div>

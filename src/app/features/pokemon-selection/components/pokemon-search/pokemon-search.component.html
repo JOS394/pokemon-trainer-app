@@ -1,0 +1,12 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    [(ngModel)]="searchText" 
+    (input)="onInput()" 
+    placeholder="Buscar por índice, nombre..." 
+    class="search-input"
+  >
+  <span class="search-icon">
+    <mat-icon>search</mat-icon>
+  </span>
+</div>

@@ -1,0 +1,21 @@
+<div class="pokemon-list-container">
+  <div class="pokemon-grid">
+    <app-pokemon-card
+      *ngFor="let pokemon of displayedPokemons"
+      [pokemon]="pokemon"
+      [selected]="isPokemonSelected(pokemon)"
+      [showLowOpacity]="shouldShowLowOpacity()"
+      (toggleSelection)="togglePokemonSelection($event)"
+    ></app-pokemon-card>
+  </div>
+
+  <div class="action-container">
+    <button 
+      class="btn-save" 
+      [disabled]="selectedPokemons.length !== maxSelection"
+      (click)="onSaveTeam()"
+    >
+      Guardar
+    </button>
+  </div>
+</div>

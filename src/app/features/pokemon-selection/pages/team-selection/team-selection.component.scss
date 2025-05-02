@@ -1,0 +1,84 @@
+.pokemon-selection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  color: #5c5c5c;
+}
+
+// Back Link and Header
+.back-link {
+  margin-bottom: 0.5rem;
+  
+  a {
+    display: flex;
+    align-items: center;
+    color: #185A7D;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .arrow-left {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #185A7D;
+    border-left: 2px solid #185A7D;
+    transform: rotate(-45deg);
+  }
+  
+  .heading {
+    margin-left: 0.5rem;
+  }
+}
+
+.subtitle {
+  color: rgb(184, 182, 182);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+// Main Layout
+.selection-layout {
+  display: flex;
+  gap: 12rem;
+  margin-top: 1.5rem;
+  padding-inline: 1rem;
+  
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// Selection Section
+.selection-section {
+  flex: 2;
+  max-width: 625px;
+  margin-top: -3.5rem;
+}
+
+.section-title {
+  color: #185A7D;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding-inline: 3.5rem;
+}
+
+.section-instruction {
+  color: #a5a5a5;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  margin-inline: 3.5rem;
+}
