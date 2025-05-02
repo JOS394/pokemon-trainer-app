@@ -58,7 +58,11 @@ export class PokemonListComponent {
   }
 
   onSaveTeam(): void {
-    this.saveTeam.emit();
+    if (this.selectedPokemons.length === this.maxSelection) {
+      this.saveTeam.emit();
+    } else {
+      console.warn('Cannot save team: Not enough Pokémon selected');
+    }
   }
 
   updateDisplayedPokemons(): void {
@@ -87,4 +91,6 @@ export class PokemonListComponent {
     );
     this.displayedPokemons = this.filteredPokemons.slice(0, this.maxDisplay);
   }
+
+  
 }

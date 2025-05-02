@@ -16,6 +16,12 @@ export const routes: Routes = [
     canActivate: [profileCompleteGuard]
   },
   {
+    path: 'dashboard',
+    loadComponent: () => import('./features/trainer-dashboard/pages/dashboard/dashboard.component')
+      .then(m => m.DashboardComponent),
+    canActivate: [profileCompleteGuard]
+  },
+  {
     path: 'trainer-profile',
     children: [
       {
@@ -31,13 +37,6 @@ export const routes: Routes = [
       // }
     ]
   },
-
-  // {
-  //   path: 'dashboard',
-  //   loadComponent: () => import('./features/trainer-dashboard/pages/dashboard/dashboard.component')
-  //     .then(m => m.DashboardComponent),
-  //   canActivate: [profileCompleteGuard]
-  // },
   {
     path: '**',
     redirectTo: '/trainer-profile/create'

@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    margin-top: 1.6rem;
+    color: #5c5c5c;
+  }
+  
+  // Header
+  .dashboard-header {
+    margin-bottom: 2rem;
+    
+    .welcome-heading {
+      color: #185A7D;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: rgb(184, 182, 182);
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+  
+  // Main Layout
+  .dashboard-layout {
+    display: flex;
+    gap: 12rem;
+    padding-inline: 1rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+  
+  // Team Section
+  .team-section {
+    flex: 2;
+    max-width: 500px;
+    margin-bottom: 1.1rem;
+    margin-top: -19px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 0.9rem;
+  }
+  
+  .section-title {
+    color: #185A7D;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .edit-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+    border: 1px solid #185A7D;
+    background-color: #FFFFFF;
+    color: #185A7D;
+    border-radius: 15px;
+    padding-inline: 3rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #134965;
+      color: #FFFFFF;
+    }
+    
+    .edit-icon {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }

@@ -1,0 +1,47 @@
+<div class="team-display-container">
+  <!-- Error Message -->
+  <div *ngIf="hasError" class="error-message">
+    <div class="icon">⚠️</div>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Empty Team Message -->
+  <div *ngIf="!hasError && teamPokemons.length === 0" class="empty-team">
+    <div class="pokeball-icon">
+      <div class="pokeball-top"></div>
+      <div class="pokeball-middle"></div>
+      <div class="pokeball-bottom"></div>
+    </div>
+    <p>¡No tienes Pokémon en tu equipo todavía!</p>
+    <p class="secondary-text">Regresa a la selección de equipo para agregar Pokémon.</p>
+  </div>
+
+  <!-- Pokemon Cards (Diseño Exacto) -->
+  <div *ngIf="!hasError && teamPokemons.length > 0" class="pokemon-team">
+    <div *ngFor="let pokemon of teamPokemons" class="pokemon-card">
+      <div class="card-content">
+        <!-- Lado izquierdo - Imagen y nombre -->
+        <div class="left-side">
+          <img [src]="getPokemonImage(pokemon)" [alt]="pokemon.name" class="pokemon-image">
+          <div class="pokemon-info">
+            <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+            <div class="pokemon-type">{{ getTypeDisplay(pokemon) }}</div>
+          </div>
+        </div>
+        
+        <!-- Lado derecho - Stats -->
+        <div class="right-side">
+          <div *ngFor="let stat of statLabels" class="stat-item">
+            <div class="stat-name">{{ stat.label }}</div>
+            <div class="stat-bar-container">
+              <div class="stat-bar" 
+                  [style.width]="getStatPercentage(getStat(pokemon, stat.key))"
+                  [ngClass]="['stat-bar-' + getPrimaryType(pokemon)]">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
