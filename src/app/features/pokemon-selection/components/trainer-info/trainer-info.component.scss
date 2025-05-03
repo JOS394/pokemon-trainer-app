@@ -1,11 +1,11 @@
 .profile-card {
   flex: 1;
-  max-width: 340px;
+  width: 260px;
   background-color: #FFC600;
-  border-radius: 1rem;
+  border-radius: 50px;
   padding: 2rem;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   flex-direction: column;
   align-items: center;
   
@@ -22,11 +22,11 @@
 }
 
 .profile-photo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid white;
+  border: 10px solid white;
   margin-bottom: 2rem;
   
   img {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { IdentificationType } from '../../../../core/models/trainer.interface';
+import { IdentificationType, Trainer } from '../../../../core/models/trainer.interface';
 import { duiValidator } from '../../../../shared/validators/dui.validator';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 export class ProfileFormComponent implements OnInit {
   @Input() profilePhoto: string | File = '';
   @Output() formSubmit = new EventEmitter<any>();
+  @Input() existingTrainer: Trainer | null = null;
   
   profileForm!: FormGroup;
   isAdult: boolean = false;
@@ -56,6 +57,16 @@ export class ProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+
+    if (this.existingTrainer) {
+      this.profileForm.patchValue({
+        name: this.existingTrainer.name,
+        hobby: this.existingTrainer.hobby,
+        birthDate: new Date(this.existingTrainer.birthDate).toISOString().split('T')[0],
+        identificationType: this.existingTrainer.identification.type,
+        identificationNumber: this.existingTrainer.identification.number
+      });
+    }
 
     const existingHobby = this.profileForm.get('hobby')?.value;
     if (existingHobby) {

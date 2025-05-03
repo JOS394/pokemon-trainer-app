@@ -1,0 +1,30 @@
+<!-- Profile Creation Container -->
+<div class="profile-create-container">
+    <!-- Back Link -->
+    <div class="back-link">
+      <a routerLink="/home">
+        <span class="arrow-left"></span>
+        <span class="greeting">¡Hola! </span> Editemos tu perfil
+      </a>
+    </div>
+    
+    <div class="subtitle">Modifica tu información personal.</div>
+    
+    <div class="profile-form-container">
+        <!-- Photo Upload Section -->
+        <div class="photo-section">
+          <app-photo-uploader 
+            [currentPhoto]="currentTrainer?.photo"
+            (photoSelected)="onPhotoSelected($event)">
+          </app-photo-uploader>
+        </div>
+        
+        <app-profile-form 
+          [profilePhoto]="profilePhoto"
+          [existingTrainer]="currentTrainer" 
+          (formSubmit)="onFormSubmit($event)">
+        </app-profile-form>
+      </div>
+    </div>
+  
+  <app-loader *ngIf="isLoading"></app-loader>

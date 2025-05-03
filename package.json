@@ -20,7 +20,6 @@
     "@angular/material": "^19.2.11",
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
-    "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.9",
     "@ngrx/effects": "^19.1.0",

@@ -14,6 +14,7 @@ export class PhotoUploaderComponent {
   @Output() photoSelected = new EventEmitter<File | string>();
   @Input() maxSizeInMB: number = 5;
   @Input() storageKey: string = 'userProfilePhoto';
+  @Input() currentPhoto: string | undefined;
   
   previewUrl: string | null = null;
   fileName: string = '';
@@ -23,6 +24,11 @@ export class PhotoUploaderComponent {
 
   ngOnInit(): void {
     this.loadPhotoFromLocalStorage();
+
+      if (this.currentPhoto && !this.previewUrl) {
+      this.previewUrl = this.currentPhoto;
+      this.fileName = 'Foto actual';
+    }
   }
 
   loadPhotoFromLocalStorage(): void {

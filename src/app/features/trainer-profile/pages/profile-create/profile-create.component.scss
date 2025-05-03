@@ -1,5 +1,5 @@
 .profile-create-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -46,7 +46,7 @@
   display: flex;
   gap: 8rem;
   padding-inline: 5rem;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
 
 .greeting {
@@ -303,7 +303,7 @@ input[type="date"].material-input:focus + .material-label {
 }
 
 .btn-continue:hover:not(:disabled) {
-  background-color: #cbd5e0;
+  background-color: #E6E6E6;
 }
 
 .btn-continue:disabled {

@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
   currentTrainer: Trainer | null = null;
   hasError: boolean = false;
   errorMessage: string = '';
+  nameDisplay: string = '' ;
   
   constructor(
     private trainerService: TrainerService,
@@ -44,12 +45,22 @@ export class DashboardComponent implements OnInit {
     this.isLoading = true;
     this.hasError = false;
     
-    // Get trainer profile
     this.trainerService.getTrainer().subscribe({
       next: (trainer) => {
         this.currentTrainer = trainer;
+        this.nameDisplay = this.currentTrainer?.name?.trim().split(' ')[0] || '';
         
-        // If trainer has a team, load the team Pokémon
+        // Solo crear isTrainerCreated cuando el usuario llegue al dashboard
+        // y tenga un trainer válido
+        if (this.currentTrainer) {
+          // Verificar si ya existe para no sobrescribir innecesariamente
+          if (localStorage.getItem('isTrainerCreated') !== 'true') {
+            localStorage.setItem('isTrainerCreated', 'true');
+            // Forzar actualización del header
+            window.dispatchEvent(new Event('storage'));
+          }
+        }
+        
         if (this.currentTrainer?.team && this.currentTrainer.team.length > 0) {
           this.loadTeamPokemons();
         } else {
@@ -90,10 +101,10 @@ export class DashboardComponent implements OnInit {
   }
   
   editTeam(): void {
-    this.router.navigate(['/team-selection']);
+    this.router.navigate(['/pokemon-selection']);
   }
   
   editProfile(): void {
-    this.router.navigate(['/profile-create']);
+    this.router.navigate(['/trainer-profile/edit']);
   }
 }

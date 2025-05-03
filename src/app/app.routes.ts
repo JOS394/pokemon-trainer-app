@@ -29,12 +29,12 @@ export const routes: Routes = [
         loadComponent: () => import('./features/trainer-profile/pages/profile-create/profile-create.component')
           .then(m => m.ProfileCreateComponent)
       },
-      // {
-      //   path: 'edit',
-      //   loadComponent: () => import('./features/trainer-profile/pages/profile-edit/profile-edit.component')
-      //     .then(m => m.ProfileEditComponent),
-      //   canActivate: [profileCompleteGuard]
-      // }
+      {
+        path: 'edit',
+        loadComponent: () => import('./features/trainer-profile/pages/profile-edit/profile-edit.component')
+          .then(m => m.ProfileEditComponent),
+        canActivate: [profileCompleteGuard]
+      } 
     ]
   },
   {

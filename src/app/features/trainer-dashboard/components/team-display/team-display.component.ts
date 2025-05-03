@@ -26,9 +26,6 @@ export class TeamDisplayComponent implements OnChanges {
   ];
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['teamPokemons'] && this.teamPokemons) {
-      console.log('Team Pokemons cargados:', this.teamPokemons);
-    }
   }
 
   getTypeClass(type: string): string {

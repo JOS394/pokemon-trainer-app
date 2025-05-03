@@ -2,8 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  margin-top: 1.6rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #5c5c5c;
 }
 
@@ -51,9 +50,9 @@
 // Main Layout
 .selection-layout {
   display: flex;
-  gap: 12rem;
-  margin-top: 1.5rem;
-  padding-inline: 1rem;
+  gap: 8rem;
+  padding-inline: 5rem;
+  margin-top: 1rem;
   
   
   @media (max-width: 768px) {
@@ -79,6 +78,6 @@
 .section-instruction {
   color: #a5a5a5;
   font-size: 0.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-inline: 3.5rem;
 }

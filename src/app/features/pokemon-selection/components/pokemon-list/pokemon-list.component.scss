@@ -5,10 +5,10 @@
   
   .pokemon-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(149px, 3fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(133px, 3fr));
+    gap: 1rem;
     margin-bottom: 2rem;
-    padding-inline: 4rem;
+    padding-inline: 3rem;
   }
   
   .action-container {
@@ -21,8 +21,8 @@
     background-color: #023c60;
     color: white;
     border: none;
-    border-radius: 2rem;
-    padding: 0.75rem 2.5rem;
+    border-radius: 8px;
+    padding: 0.75rem 3.5rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;

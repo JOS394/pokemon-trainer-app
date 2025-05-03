@@ -259,23 +259,24 @@
   
   /* Estilo para botón continuar */
   .btn-continue {
-    background-color: #e2e8f0;
-    color: #4a5568;
+    background-color: #01426A;
+    color: #fff;
     border: none;
-    border-radius: 28px;
-    padding: 12px 30px;
+    border-radius: 8px;
+    padding: 12px 45px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
   }
   
   .btn-continue:hover:not(:disabled) {
-    background-color: #cbd5e0;
+    background-color: #E6E6E6;
+    color: #01426A;
   }
   
   .btn-continue:disabled {
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.2;
   }
   
   .form-actions {

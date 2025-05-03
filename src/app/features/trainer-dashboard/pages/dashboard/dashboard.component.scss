@@ -6,14 +6,20 @@ body {
 .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-    margin-top: 1.6rem;
+    padding: 1rem;
     color: #5c5c5c;
   }
   
   // Header
   .dashboard-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    
+    .header-flex {
+        display: flex;
+        justify-content:flex-start;
+        align-items: baseline;
+        gap: 1rem;
+    }
     
     .welcome-heading {
       color: #185A7D;
@@ -33,7 +39,7 @@ body {
   .dashboard-layout {
     display: flex;
     gap: 12rem;
-    padding-inline: 1rem;
+    padding-inline: 5rem;
     
     @media (max-width: 768px) {
       flex-direction: column;
@@ -64,16 +70,16 @@ body {
     margin: 0;
   }
   
+  
   .edit-button {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding-block: 0.5rem;
     border: 1px solid #185A7D;
     background-color: #FFFFFF;
     color: #185A7D;
     border-radius: 15px;
-    padding-inline: 3rem;
+    padding-inline: 1.2rem;
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
@@ -88,4 +94,5 @@ body {
       font-size: 1rem;
       font-weight: 700;
     }
+
   }
