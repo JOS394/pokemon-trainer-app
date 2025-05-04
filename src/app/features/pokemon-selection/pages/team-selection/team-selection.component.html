@@ -1,5 +1,5 @@
 <!-- Pokemon Selection Container -->
-<div class="pokemon-selection-container">
+<div class="pokemon-selection-container" *ngIf="!isLoading">
   <!-- Back Link -->
   <div class="back-link">
     <a (click)="goToPrevious()">
